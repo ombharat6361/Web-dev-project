@@ -1,0 +1,43 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %} 
+
+<style>
+    .profile-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+
+
+<header class="masthead"
+    style="background-image:url('/static/img/index.jpg' ) ;background-size: cover; background-repeat: no-repeat; background-position: center; height : 350px">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>{{user.username}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="profile-container">
+        
+    <div>
+        {% include 'feed_component.html' %}
+    </div>
+
+    <div>
+        {% include 'activity_component.html' %}
+    </div>
+
+</div>
+</section>
+{% endblock %} 

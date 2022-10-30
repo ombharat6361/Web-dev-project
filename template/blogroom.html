@@ -1,0 +1,44 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<header class="masthead" style="background-image:url('/static/img/index.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Blogs</h1><span class="subheading"><a href="#" style="font-style: italic;"></a></span>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+</header>
+<form method="GET" action="{% url 'search' %}">
+    <input type="text" name="query" placeholder="Search for blogs">
+    <button type="submit">Search</button>
+</form>
+
+<br/>
+<div class="row" id="newblog">
+    <a href="{% url 'blogadd' %}"><button type="button" class="btn btn-outline-primary">New Blog</button></a>
+</div>
+
+<section>
+    <div>
+        {% for blog in blogs %}
+        <div class="post-preview"><a href="{% url 'blogpost' blog.id %}">
+                <h2 class="post-title">{{blog.title}}</h2>
+                <h3 class="post-subtitle">{{ blog.description|truncatewords:25 }}</h3>
+            </a>
+            <p class="post-meta">Posted by&nbsp;<a href="#">{{blog.user}} on {{blog.created_at}}</a></p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

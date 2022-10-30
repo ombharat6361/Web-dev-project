@@ -1,0 +1,43 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+    <header class="masthead" style="background-image:url('static/img/index.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1>Add a blog</h1><span class="subheading"><a href="#" style="font-style: italic;"></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 col-lg-8 mx-auto">
+                
+                <form action="{% url 'blogadd' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="control-group">
+                        <div class="form-floating controls mb-3">{% render_field form.title %}<label class="form-label" for="name">Name</label></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-floating controls mb-3"><label class="form-label">Subheading</label>{% render_field form.subheading %}</div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-floating controls mb-3"><label class="form-label">Content</label>{% render_field form.description %}</div>
+                    </div>
+                    
+                    <div class="mb-3"><button class="btn btn-primary" type="submit">Submit</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+   
+
+{% endblock %} 

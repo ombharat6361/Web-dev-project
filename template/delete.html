@@ -1,0 +1,16 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="py-5 mt-5">
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{obj}}"?</p>
+    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    <input type="submit" value="Confirm" />
+
+</form>
+</section>
+{% endblock %}

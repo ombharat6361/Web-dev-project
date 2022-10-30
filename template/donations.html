@@ -1,0 +1,43 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<header class="masthead"
+    style="background-image:url('/static/img/index.jpg' ) ;background-size: cover; background-repeat: no-repeat; background-position: center; height : 500px">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Charities</h1><span class="subheading">Every little bit helps</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <!-- <div class="col-md-10 col-lg-8 mx-auto"> -->
+
+    <h2>Some charities we work with: </h2>
+    <h5><a href="https://www.komen.org/" target="_blank">1. Susan G. Komen for the cure</a></h5>
+    <br/>
+    <h5><a href="https://www.cancer.org" target="_blank">2. American Cancer Society</a></h5>
+    <br/>
+    <h5><a href="https://www.cancerresearch.org" target="_blank">3. Cancer Research Institute</a></h5>
+    <br/>
+    <h5><a href="https://mskcc.org" target="_blank">4. Memorial Sloan Kettering Cancer Center</a></h5>
+    <br/>
+    <h5><a href="https://www.pcf.org/" target="_blank">5. Prostate Cancer Foundation</a></h5>
+    <br/>
+    <h5><a href="https://www.livestrong.org/" target="_blank">6. Livestrong Foundation</a></h5>
+    
+</div>
+
+<hr>
+
+
+{% endblock %}

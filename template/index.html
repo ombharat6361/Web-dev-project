@@ -1,0 +1,39 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <header class="masthead" style="background-image:url('static/img/home-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1>“You can be a victim of cancer, or a survivor of cancer. It's a mindset.” </h1><span class="subheading">— Dave Pelzer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="row" id="newblog">
+        <a href="{% url 'blogadd' %}"><button type="button" class="btn btn-outline-primary">New Blog</button></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8">
+                {% for blog in blogs|slice:":3" %}
+                <div class="post-preview"><a href="{% url 'blogpost' blog.id %}">
+                        <h2 class="post-title">{{blog.title}}</h2>
+                        <h3 class="post-subtitle">{{ blog.description|truncatewords:25 }}</h3>
+                    </a>
+                    <p class="post-meta">Posted by&nbsp;<a href="{% url 'user-profile' blog.user.id %}">{{blog.user}} on {{blog.created_at}}</a></p>
+                </div>
+                {% endfor %}
+                <hr>
+                <div class="clearfix"><a href="{% url 'blogroom' %}" ><button class="btn btn-primary float-end" type="button">All Blogs&nbsp;⇒</button></div></a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

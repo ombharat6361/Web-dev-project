@@ -1,0 +1,63 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<body style="background-image:url(/static/img/duh2.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height : 900px">
+<section class="py-5 mt-5">
+    {% if page == 'login' %}
+    <div>
+        <div class="container py-5" style="width: 250px;align-content: center">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label style = "color: azure ; text-align: center;"  >Username: </label> <br>
+            <input type="text" name="username" placeholder="Enter username" /> <br>
+
+            <label style = "color: azure">Password: </label> <br>
+            <input type="password" name="password" placeholder="Enter Password" /> <br>
+
+            <input type="submit" value="Login" /> <br>
+            <a href="{% url 'reset_password' %}" style = "color: azure">Forgot your password?</a>
+        </form>
+    
+        <p style = "color: azure">Don't have an account?</p> <br>
+        <a href="{% url 'register' %}" style = "color: azure">Sign Up</a>
+    </div>
+        {% else %}
+        <div class="container py-5" style="width: 480px;align-content: center">
+            <div class="row mb-5">
+                
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style = "color: azure">Username</label>
+                        <input type="text" class="form-control" name="Name" placeholder="Username">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style = "color: azure">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email Id">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style = "color: azure">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style = "color: azure">Confirm Password</label>
+                        <input type="password" class="form-control" name="confirmpassword"
+                            placeholder="Confirm Password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style = "color: rgb(21, 22, 22);background-color: aliceblue;" style="margin-left: 30%">Submit</button>
+                </form>
+                <p style = "color: azure">Already have an account?</p>
+                <a href="{% url 'login'  %} " style = "color: azure">Log in</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>
+</body>
+{% endblock %}

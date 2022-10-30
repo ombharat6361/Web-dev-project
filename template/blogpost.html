@@ -1,0 +1,33 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <header class="masthead" style="background-image:url('static/img/index.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="post-heading">
+                        <h1>{{blog.title}}</h1>
+                        <h2 class="subheading">{{blog.subheading}}</h2><span class="meta">Posted by&nbsp;<a href="#">{{blog.user}}</a>&nbsp;{{blog.created_at}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p>{{blog.description}}</p>
+                   
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+{% endblock %}

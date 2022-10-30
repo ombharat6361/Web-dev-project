@@ -1,0 +1,36 @@
+        {% extends './common/base.html' %}
+        {% load crispy_forms_tags %}
+        {% load static %}
+        {% block content %}
+
+        <header class="masthead" style="background-image:url('assets/img/contact-bg.jpg');">
+                <div class="overlay"></div>
+                <div class="container">
+                        <div class="row">
+                                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                                        <div class="site-heading">
+                                                <h1>Create room</h1><span class="subheading"><a href="#"
+                                                                style="font-style: italic;"></a></span>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </header>
+        <div>
+                <div class="container">
+                        <div class="row">
+                                <div class="col-md-1 col-lg-8 mx-auto">
+                                        <main class="page blogs-page">
+                                                <section class="portfolio-block blogs-cards">
+                                                        <form action="{% url 'create-room' %}" method="POST">
+                                                                {% csrf_token %}
+                                                                {{form|crispy}} 
+                                                                <input type="submit" value="Submit" />
+                                                        </form>
+                                                </section>
+                                        </main>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        {% endblock %}

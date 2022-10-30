@@ -1,0 +1,41 @@
+{% extends './common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<header class="masthead" style="background-image:url('/static/img/index.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Rooms</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<div class="row" id="newroom">
+    <a href="{% url 'create-room' %}"><button type="button" class="btn btn-outline-primary">New Room</button></a>
+</div>
+<br/>
+<form method="GET" action="{% url 'searchroom' %}">
+    <input type="text" name="query" placeholder="Search for rooms">
+    <button type="submit">Search</button>
+</form>
+<br/>
+<div>
+    <div class="post-preview">{% include 'feed_component.html' %}</div>
+    <!-- {% for room in rooms %}
+        <div class="post-preview"><a href="{% url 'room' room.id %}">
+                <h2 class="post-title">{{room.name}}</h2>
+                <h3 class="post-subtitle">{{ room.description|truncatewords:25 }}</h3>
+            </a>
+            <p class="post-meta">Posted by&nbsp;<a href="#">{{room.host}} on {{room.created}}</a></p>
+        </div>
+        {% endfor %} -->
+</div>
+
+
+{% endblock %}

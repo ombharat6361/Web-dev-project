@@ -1,0 +1,41 @@
+{% extends './common/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags  %}
+{% block content %}
+
+<header class="masthead" style="background-image:url('static/img/index.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Add a blog</h1><span class="subheading"><a href="#" style="font-style: italic;"></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1 col-lg-8 mx-auto">
+            <main class="page blogs-page">
+                <section class="portfolio-block blogs-cards">
+
+                    <form action="{% url 'blogadd' %}" method="POST">
+                        {% csrf_token %}
+                        <div>
+                            {{form|crispy}}
+                        </div>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+{% endblock %}
